@@ -11,6 +11,7 @@ import UIKit
 
 class CellConfig: UITableViewCell {
     
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var newsTitleLabel: UILabel!
     
     

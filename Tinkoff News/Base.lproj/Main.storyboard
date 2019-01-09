@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Obe-H7-tvC">
-                                <rect key="frame" x="0.0" y="323" width="375" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Obe-H7-tvC">
+                                <rect key="frame" x="0.0" y="323" width="375" height="21"/>
                             </activityIndicatorView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Y7-FC-h4w">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
@@ -32,20 +32,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJz-10-nWT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJz-10-nWT">
                                                     <rect key="frame" x="15" y="11" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDD-5A-GYa">
+                                                    <rect key="frame" x="346" y="30" width="22" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tDD-5A-GYa" secondAttribute="trailing" constant="-8" id="09A-19-S9i"/>
                                                 <constraint firstItem="rJz-10-nWT" firstAttribute="leading" secondItem="BeA-43-gGq" secondAttribute="leadingMargin" id="OHs-tz-YfJ"/>
+                                                <constraint firstItem="tDD-5A-GYa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rJz-10-nWT" secondAttribute="trailing" constant="8" symbolic="YES" id="XK6-oW-GQ2"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="rJz-10-nWT" secondAttribute="trailing" constant="8" id="Xvq-xe-lIN"/>
                                                 <constraint firstItem="rJz-10-nWT" firstAttribute="top" secondItem="BeA-43-gGq" secondAttribute="topMargin" id="amU-d6-c7c"/>
+                                                <constraint firstItem="tDD-5A-GYa" firstAttribute="top" secondItem="BeA-43-gGq" secondAttribute="topMargin" constant="19" id="eHb-LO-tee"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="countLabel" destination="tDD-5A-GYa" id="2CU-lT-8wY"/>
                                             <outlet property="newsTitleLabel" destination="rJz-10-nWT" id="q9s-Je-2xj"/>
                                             <segue destination="rzU-XX-AlP" kind="show" identifier="newsDiscript" id="XN1-v9-sUr"/>
                                         </connections>

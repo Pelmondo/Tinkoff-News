@@ -10,6 +10,7 @@ import UIKit
 
 class NewsListViewController: UIViewController, NewsBring {
     
+
     @IBOutlet weak var newsListTableView: UITableView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
@@ -17,6 +18,17 @@ class NewsListViewController: UIViewController, NewsBring {
     let api = NetworkingAPI()
     public var chooseRow : Int?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if Reachability.isConnectedToNetwork() == true {
+            print("It's okay")
+        } else {
+            let alert = UIAlertController(title: nil, message: "Internet connections failed!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            }))
+            self.present(alert,animated: true, completion: nil)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView.startAnimating()
@@ -84,6 +96,8 @@ extension NewsListViewController: UITableViewDataSource {
         if let cell = cell as? CellConfig {
             if let news = ContiTest?.response {
                 cell.newsTitleLabel.text = news.news[indexPath.row].title
+                var times = 1
+                cell.countLabel.text = "\(times)"
             }
         }
         
@@ -99,5 +113,9 @@ extension NewsListViewController: UITableViewDelegate {
         path = indexPath
         print (path.row)
         return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
