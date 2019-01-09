@@ -13,6 +13,7 @@ class NewsTextViewController: UIViewController,NewsBring {
     
     
     var choose : Int?
+    var inital : Int?
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
@@ -36,7 +37,11 @@ class NewsTextViewController: UIViewController,NewsBring {
         super.viewDidLoad()
         indicatorView.startAnimating()
         DispatchQueue.main.async {
-            self.api.test(initial: 0)
+            if let num = self.inital {
+            self.api.test(initial: num)
+            } else {
+                self.api.test(initial: 0)
+            }
             self.api.delegate = self
         }
         

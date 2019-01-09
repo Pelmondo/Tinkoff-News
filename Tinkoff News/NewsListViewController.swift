@@ -91,11 +91,11 @@ class NewsListViewController: UIViewController, NewsBring {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segIndentif {
             if let title = ContiTest {
-            segue.destination.title = title.response.news[path.row].title
+                segue.destination.title = title.response.news[path.row].title
                 if let dvc = segue.destination as? NewsTextViewController {
                     print(path.row)
                     dvc.choose = path.row
-                }
+                    dvc.inital = self.countRefr
             }
         } else {
             super.prepare(for: segue, sender: sender)
@@ -103,7 +103,7 @@ class NewsListViewController: UIViewController, NewsBring {
     }
     
 }
-
+}
 
 
 extension NewsListViewController: UITableViewDataSource {
