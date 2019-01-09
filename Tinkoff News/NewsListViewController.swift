@@ -11,6 +11,7 @@ import UIKit
 class NewsListViewController: UIViewController, NewsBring {
     
     @IBOutlet weak var newsListTableView: UITableView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     let segIndentif = "newsDiscript"
     let api = NetworkingAPI()
@@ -18,12 +19,15 @@ class NewsListViewController: UIViewController, NewsBring {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        api.test()
-        api.delegate = self
-        newsListTableView.delegate = self
-        newsListTableView.dataSource = self
+        indicatorView.startAnimating()
+        DispatchQueue.main.async {
+        self.api.test()
+        self.api.delegate = self
+        self.newsListTableView.delegate = self
+        self.newsListTableView.dataSource = self
+        }
         newsListTableView.reloadData()
-        newsListTableView.rowHeight = 70
+        newsListTableView.rowHeight = 75
         newsListTableView.estimatedRowHeight = UITableView.automaticDimension
        
     }
@@ -39,7 +43,9 @@ class NewsListViewController: UIViewController, NewsBring {
     func newsContainer(news: Response) {
         self.ContiTest = news
         DispatchQueue.main.async {
+            self.newsListTableView.isHidden = false
             self.newsListTableView.reloadData()
+            self.indicatorView.stopAnimating()
         }
     }
 
@@ -56,9 +62,6 @@ class NewsListViewController: UIViewController, NewsBring {
             super.prepare(for: segue, sender: sender)
         }
     }
-
-    var news = [NewsTest(title: "first", text: "text text"), NewsTest(title: "second", text: "text second"), NewsTest(title: "third", text: "text text text")]
- 
     
 }
 
@@ -71,7 +74,7 @@ extension NewsListViewController: UITableViewDataSource {
         if let news = ContiTest?.response.news.count {
             return news
         }
-        return 1
+        return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

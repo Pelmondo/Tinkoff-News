@@ -18,7 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Y7-FC-h4w">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Obe-H7-tvC">
+                                <rect key="frame" x="0.0" y="323" width="375" height="20"/>
+                            </activityIndicatorView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Y7-FC-h4w">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -52,15 +55,20 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Obe-H7-tvC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="259" id="0wo-U9-3zE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6Y7-FC-h4w" secondAttribute="bottom" id="4cS-Gm-4aD"/>
                             <constraint firstItem="6Y7-FC-h4w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QuO-ui-7Qd"/>
+                            <constraint firstItem="Obe-H7-tvC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rmr-GZ-Rkw"/>
+                            <constraint firstItem="Obe-H7-tvC" firstAttribute="leading" secondItem="6Y7-FC-h4w" secondAttribute="leading" id="ZQ4-pT-aAZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Y7-FC-h4w" secondAttribute="trailing" id="bJo-Gf-rcz"/>
                             <constraint firstItem="6Y7-FC-h4w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hUQ-UH-fxG"/>
+                            <constraint firstItem="Obe-H7-tvC" firstAttribute="trailing" secondItem="6Y7-FC-h4w" secondAttribute="trailing" id="xFc-5u-cVa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tinkoff News" id="2vc-5S-Zyd"/>
                     <connections>
+                        <outlet property="indicatorView" destination="Obe-H7-tvC" id="Lbu-ac-Zg8"/>
                         <outlet property="newsListTableView" destination="6Y7-FC-h4w" id="7Fk-Er-7u5"/>
                     </connections>
                 </viewController>
@@ -71,7 +79,6 @@
         <!--News Text View Controller-->
         <scene sceneID="0Vz-J0-FYZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eBO-df-MH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="rzU-XX-AlP" customClass="NewsTextViewController" customModule="Tinkoff_News" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nu4-EX-7TC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -80,7 +87,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="wGS-WO-EKk">
                                 <rect key="frame" x="0.0" y="64" width="375" height="135"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufz-Bb-iRw">
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufz-Bb-iRw">
                                 <rect key="frame" x="16" y="207" width="343" height="440"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
@@ -95,6 +102,9 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cNa-Nl-0oY">
+                                <rect key="frame" x="177" y="417" width="21" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -103,16 +113,21 @@
                             <constraint firstItem="wGS-WO-EKk" firstAttribute="top" secondItem="nwf-5T-alb" secondAttribute="top" id="QAa-6z-vGD"/>
                             <constraint firstItem="ufz-Bb-iRw" firstAttribute="centerX" secondItem="wGS-WO-EKk" secondAttribute="centerX" id="TuH-pW-TWg"/>
                             <constraint firstItem="nwf-5T-alb" firstAttribute="bottom" secondItem="wGS-WO-EKk" secondAttribute="bottom" constant="468" id="YBa-yg-wFd"/>
+                            <constraint firstItem="cNa-Nl-0oY" firstAttribute="centerX" secondItem="wGS-WO-EKk" secondAttribute="centerX" id="e6N-xD-Ldu"/>
                             <constraint firstAttribute="trailing" secondItem="wGS-WO-EKk" secondAttribute="trailing" id="evr-aK-yKU"/>
+                            <constraint firstItem="cNa-Nl-0oY" firstAttribute="leading" secondItem="nwf-5T-alb" secondAttribute="leading" constant="177" id="hUm-PW-U3G"/>
                             <constraint firstItem="wGS-WO-EKk" firstAttribute="leading" secondItem="Nu4-EX-7TC" secondAttribute="leading" id="npF-Ms-jzd"/>
+                            <constraint firstItem="cNa-Nl-0oY" firstAttribute="centerY" secondItem="ufz-Bb-iRw" secondAttribute="centerY" id="pxa-9L-0WQ"/>
                             <constraint firstItem="ufz-Bb-iRw" firstAttribute="leading" secondItem="Nu4-EX-7TC" secondAttribute="leadingMargin" id="yV3-0l-ndR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nwf-5T-alb"/>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="cNa-Nl-0oY" id="AnV-ER-yQp"/>
                         <outlet property="textView" destination="ufz-Bb-iRw" id="Rfe-ki-wEw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBO-df-MH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2016.8" y="133.5832083958021"/>
         </scene>

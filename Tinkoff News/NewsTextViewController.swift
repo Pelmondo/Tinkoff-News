@@ -18,10 +18,14 @@ class NewsTextViewController: UIViewController,TextNewsDelegate,NewsBring {
         DispatchQueue.main.async {
             let stri = news.response.news[0].text
             self.textView.text = stri.html2String
+            self.indicatorView.stopAnimating()
+            self.indicatorView.isHidden = true
+            self.textView.isHidden = false
         }
     }
     
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
    
    
@@ -31,9 +35,13 @@ class NewsTextViewController: UIViewController,TextNewsDelegate,NewsBring {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        api.test()
-        firstNewsList.delegate = self
-        api.delegate = self
+        indicatorView.startAnimating()
+        DispatchQueue.main.async {
+            self.api.test()
+            self.firstNewsList.delegate = self
+            self.api.delegate = self
+        }
+        
         }
     
     
