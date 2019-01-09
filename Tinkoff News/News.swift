@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct News {
+struct NewsTest {
     var title : String
     var text : String
     

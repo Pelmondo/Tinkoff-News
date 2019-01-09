@@ -8,36 +8,48 @@
 
 import UIKit
 
-class NewsListViewController: UIViewController {
+class NewsListViewController: UIViewController, NewsBring {
     
     @IBOutlet weak var newsListTableView: UITableView!
     
     let segIndentif = "newsDiscript"
+    let api = NetworkingAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        api.test()
+        api.delegate = self
         newsListTableView.delegate = self
         newsListTableView.dataSource = self
         newsListTableView.reloadData()
-        newsListTableView.rowHeight = UITableView.automaticDimension
-        newsListTableView.estimatedRowHeight = 50
+        newsListTableView.rowHeight = 70
+        newsListTableView.estimatedRowHeight = UITableView.automaticDimension
+       
+    }
+    
+    func newsContainer(news: Response) {
+        self.ContiTest = news
+        DispatchQueue.main.async {
+            self.newsListTableView.reloadData()
+        }
     }
 
     var path = IndexPath()
-    
+    var ContiTest : Response?
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segIndentif {
-            print(news[path.row].title)
-            segue.destination.title = news[path.row].title
+            if let title = ContiTest?.response.news[path.row].title {
+            segue.destination.title = title
+            }
         } else {
             super.prepare(for: segue, sender: sender)
         }
     }
 
-    var news = [News(title: "first", text: "text text"), News(title: "second", text: "text second"), News(title: "third", text: "text text text")]
-
+    var news = [NewsTest(title: "first", text: "text text"), NewsTest(title: "second", text: "text second"), NewsTest(title: "third", text: "text text text")]
+ 
     
 }
 
@@ -45,8 +57,12 @@ class NewsListViewController: UIViewController {
 
 extension NewsListViewController: UITableViewDataSource {
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if let news = ContiTest?.response.news.count {
+            return news
+        }
+        return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,7 +72,9 @@ extension NewsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTitle", for: indexPath)
         if let cell = cell as? CellConfig {
-            cell.newsTitleLabel.text = news[indexPath.row].title
+            if let news = ContiTest?.response {
+                cell.newsTitleLabel.text = news.news[indexPath.row].title
+            }
         }
         
         return cell

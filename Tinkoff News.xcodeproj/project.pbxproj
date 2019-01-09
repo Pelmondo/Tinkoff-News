@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		56EF088821E6342900D8885A /* CellConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088721E6342900D8885A /* CellConfig.swift */; };
 		56EF088A21E63A8300D8885A /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088921E63A8300D8885A /* News.swift */; };
+		56EF088C21E642AD00D8885A /* NetworkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088B21E642AD00D8885A /* NetworkingAPI.swift */; };
 		56F111F821DF4E7D0009A9E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F111F721DF4E7D0009A9E9 /* AppDelegate.swift */; };
 		56F111FA21DF4E7D0009A9E9 /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F111F921DF4E7D0009A9E9 /* NewsListViewController.swift */; };
 		56F111FD21DF4E7D0009A9E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F111FB21DF4E7D0009A9E9 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		56EF088721E6342900D8885A /* CellConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfig.swift; sourceTree = "<group>"; };
 		56EF088921E63A8300D8885A /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		56EF088B21E642AD00D8885A /* NetworkingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAPI.swift; sourceTree = "<group>"; };
 		56F111F421DF4E7D0009A9E9 /* Tinkoff News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tinkoff News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56F111F721DF4E7D0009A9E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56F111F921DF4E7D0009A9E9 /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				56F111FE21DF4E810009A9E9 /* Assets.xcassets */,
 				56EF088921E63A8300D8885A /* News.swift */,
 				56F1120021DF4E810009A9E9 /* LaunchScreen.storyboard */,
+				56EF088B21E642AD00D8885A /* NetworkingAPI.swift */,
 				56F1120321DF4E810009A9E9 /* Info.plist */,
 			);
 			path = "Tinkoff News";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56EF088C21E642AD00D8885A /* NetworkingAPI.swift in Sources */,
 				56EF088821E6342900D8885A /* CellConfig.swift in Sources */,
 				56F111FA21DF4E7D0009A9E9 /* NewsListViewController.swift in Sources */,
 				56EF088A21E63A8300D8885A /* News.swift in Sources */,
