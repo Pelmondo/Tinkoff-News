@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		560CBE2F21E6662D00D08620 /* NewsTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560CBE2E21E6662D00D08620 /* NewsTextViewController.swift */; };
 		56EBC08A21E68D85009C5593 /* ConnectionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBC08921E68D85009C5593 /* ConnectionCheck.swift */; };
+		56EBC08C21E69371009C5593 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBC08B21E69371009C5593 /* Storage.swift */; };
+		56EBC08F21E693A6009C5593 /* Storage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56EBC08D21E693A6009C5593 /* Storage.xcdatamodeld */; };
 		56EF088821E6342900D8885A /* CellConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088721E6342900D8885A /* CellConfig.swift */; };
 		56EF088A21E63A8300D8885A /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088921E63A8300D8885A /* News.swift */; };
 		56EF088C21E642AD00D8885A /* NetworkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088B21E642AD00D8885A /* NetworkingAPI.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		560CBE2E21E6662D00D08620 /* NewsTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTextViewController.swift; sourceTree = "<group>"; };
 		56EBC08921E68D85009C5593 /* ConnectionCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCheck.swift; sourceTree = "<group>"; };
+		56EBC08B21E69371009C5593 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		56EBC08E21E693A6009C5593 /* Storage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Storage.xcdatamodel; sourceTree = "<group>"; };
 		56EF088721E6342900D8885A /* CellConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfig.swift; sourceTree = "<group>"; };
 		56EF088921E63A8300D8885A /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		56EF088B21E642AD00D8885A /* NetworkingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAPI.swift; sourceTree = "<group>"; };
@@ -70,9 +74,11 @@
 				56EF088721E6342900D8885A /* CellConfig.swift */,
 				56F111FE21DF4E810009A9E9 /* Assets.xcassets */,
 				56EBC08921E68D85009C5593 /* ConnectionCheck.swift */,
+				56EBC08B21E69371009C5593 /* Storage.swift */,
 				56EF088921E63A8300D8885A /* News.swift */,
 				560CBE2E21E6662D00D08620 /* NewsTextViewController.swift */,
 				56F1120021DF4E810009A9E9 /* LaunchScreen.storyboard */,
+				56EBC08D21E693A6009C5593 /* Storage.xcdatamodeld */,
 				56EF088B21E642AD00D8885A /* NetworkingAPI.swift */,
 				56F1120321DF4E810009A9E9 /* Info.plist */,
 			);
@@ -151,10 +157,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				560CBE2F21E6662D00D08620 /* NewsTextViewController.swift in Sources */,
+				56EBC08F21E693A6009C5593 /* Storage.xcdatamodeld in Sources */,
 				56EBC08A21E68D85009C5593 /* ConnectionCheck.swift in Sources */,
 				56EF088C21E642AD00D8885A /* NetworkingAPI.swift in Sources */,
 				56EF088821E6342900D8885A /* CellConfig.swift in Sources */,
 				56F111FA21DF4E7D0009A9E9 /* NewsListViewController.swift in Sources */,
+				56EBC08C21E69371009C5593 /* Storage.swift in Sources */,
 				56EF088A21E63A8300D8885A /* News.swift in Sources */,
 				56F111F821DF4E7D0009A9E9 /* AppDelegate.swift in Sources */,
 			);
@@ -356,6 +364,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		56EBC08D21E693A6009C5593 /* Storage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				56EBC08E21E693A6009C5593 /* Storage.xcdatamodel */,
+			);
+			currentVersion = 56EBC08E21E693A6009C5593 /* Storage.xcdatamodel */;
+			path = Storage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 56F111EC21DF4E7D0009A9E9 /* Project object */;
 }
