@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import CoreData
 
 class NewsListViewController: UIViewController, NewsBring {
     
@@ -33,6 +35,14 @@ class NewsListViewController: UIViewController, NewsBring {
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView.startAnimating()
+        let fetchRequest: NSFetchRequest<NewsEn> = NewsEn.fetchRequest()
+        
+        do {
+            let newsE = try self.storage.mainContext.fetch(fetchRequest)
+            
+            
+        } catch {}
+        
         DispatchQueue.main.async {
         self.api.test()
         self.api.delegate = self
@@ -96,6 +106,20 @@ extension NewsListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTitle", for: indexPath)
         if let cell = cell as? CellConfig {
             if let news = ContiTest?.response {
+                
+                //MARK: - CoreData
+                let newsEn = NewsEn(context: self.storage.saveContext)
+                
+                if let title = ContiTest?.response.news[indexPath.row].title {
+                    newsEn.title = title
+                }
+                
+                if let text = ContiTest?.response.news[indexPath.row].text {
+                    newsEn.text = text
+                }
+                DispatchQueue.main.async {
+                    self.storage.performSave(with: self.storage.saveContext)
+                }
                 cell.newsTitleLabel.text = news.news[indexPath.row].title
                 var times = 1
                 cell.countLabel.text = "\(times)"
@@ -117,17 +141,6 @@ extension NewsListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newsEn = NewsEn(context: self.storage.saveContext)
-        
-        if let title = ContiTest?.response.news[indexPath.row].title {
-            newsEn.title = title
-        }
-        
-        if let text = ContiTest?.response.news[indexPath.row].text {
-            newsEn.text = text
-        }
-        DispatchQueue.main.async {
-        self.storage.performSave(with: self.storage.saveContext)
-        }
+       
     }
 }
