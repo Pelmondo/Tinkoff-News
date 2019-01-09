@@ -33,9 +33,10 @@ class NetworkingAPI {
 
     let decoder = JSONDecoder()
 
-    func test () {
+    func test (initial: Int) {
    
-        guard let url = URL(string: "https://cfg.tinkoff.ru/news/public/api/platform/v1/getArticles?pageSize=15&pageOffset=0") else {return}
+        
+        guard let url = URL(string: "https://cfg.tinkoff.ru/news/public/api/platform/v1/getArticles?pageSize=20&pageOffset=\(initial)") else {return}
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
         if let response = response {

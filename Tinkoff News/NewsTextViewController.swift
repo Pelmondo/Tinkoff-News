@@ -36,7 +36,7 @@ class NewsTextViewController: UIViewController,NewsBring {
         super.viewDidLoad()
         indicatorView.startAnimating()
         DispatchQueue.main.async {
-            self.api.test()
+            self.api.test(initial: 0)
             self.api.delegate = self
         }
         

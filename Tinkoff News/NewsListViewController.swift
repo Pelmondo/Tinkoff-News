@@ -32,6 +32,9 @@ class NewsListViewController: UIViewController, NewsBring {
             self.present(alert,animated: true, completion: nil)
         }
     }
+    
+   var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         indicatorView.startAnimating()
@@ -44,7 +47,7 @@ class NewsListViewController: UIViewController, NewsBring {
         } catch {}
         
         DispatchQueue.main.async {
-        self.api.test()
+        self.api.test(initial: 0)
         self.api.delegate = self
         self.newsListTableView.delegate = self
         self.newsListTableView.dataSource = self
@@ -52,10 +55,24 @@ class NewsListViewController: UIViewController, NewsBring {
         newsListTableView.reloadData()
         newsListTableView.rowHeight = 75
         newsListTableView.estimatedRowHeight = UITableView.automaticDimension
+        
+        // refresh
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        newsListTableView.addSubview(refreshControl)
        
     }
     
-   
+    var countRefr = 0;
+    @objc func refresh(_ sender: Any) {
+        countRefr += 20
+        indicatorView.startAnimating()
+        self.newsListTableView.isHidden = true
+        DispatchQueue.main.async {
+            self.api.test(initial: self.countRefr)
+        }
+    }
     
     func newsContainer(news: Response) {
         self.ContiTest = news
@@ -63,6 +80,7 @@ class NewsListViewController: UIViewController, NewsBring {
             self.newsListTableView.isHidden = false
             self.newsListTableView.reloadData()
             self.indicatorView.stopAnimating()
+            self.refreshControl.endRefreshing()
         }
     }
 
