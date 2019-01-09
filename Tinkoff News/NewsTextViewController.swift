@@ -9,28 +9,27 @@
 import Foundation
 import UIKit
 
-protocol TextNewsDelegate: class {
-    func textBring(news: Response, numberOfRow: Int)
-}
-
-class NewsTextViewController: UIViewController,TextNewsDelegate,NewsBring {
+class NewsTextViewController: UIViewController,NewsBring {
+    
+    
+    var choose : Int?
+    
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
+   
     func newsContainer(news: Response) {
+        guard let row = choose else {return}
+        print(row)
         DispatchQueue.main.async {
-            let stri = news.response.news[0].text
+            let stri = news.response.news[row].text
             self.textView.text = stri.html2String
             self.indicatorView.stopAnimating()
             self.indicatorView.isHidden = true
             self.textView.isHidden = false
         }
     }
-    
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
-    
-   
-   
-    
-    let firstNewsList = NewsListViewController()
+
     let api = NetworkingAPI()
     
     override func viewDidLoad() {
@@ -38,16 +37,12 @@ class NewsTextViewController: UIViewController,TextNewsDelegate,NewsBring {
         indicatorView.startAnimating()
         DispatchQueue.main.async {
             self.api.test()
-            self.firstNewsList.delegate = self
             self.api.delegate = self
         }
         
         }
     
     
-    func textBring(news: Response, numberOfRow: Int) {
-        
-    }
     
     
 }
