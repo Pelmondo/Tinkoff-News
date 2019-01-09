@@ -17,6 +17,7 @@ class NewsListViewController: UIViewController, NewsBring {
     let segIndentif = "newsDiscript"
     let api = NetworkingAPI()
     public var chooseRow : Int?
+    let storage = Storage()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -116,6 +117,17 @@ extension NewsListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newsEn = NewsEn(context: self.storage.saveContext)
         
+        if let title = ContiTest?.response.news[indexPath.row].title {
+            newsEn.title = title
+        }
+        
+        if let text = ContiTest?.response.news[indexPath.row].text {
+            newsEn.text = text
+        }
+        DispatchQueue.main.async {
+        self.storage.performSave(with: self.storage.saveContext)
+        }
     }
 }
