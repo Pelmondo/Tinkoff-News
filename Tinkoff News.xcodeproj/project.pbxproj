@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560CBE2F21E6662D00D08620 /* NewsTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560CBE2E21E6662D00D08620 /* NewsTextViewController.swift */; };
 		56EF088821E6342900D8885A /* CellConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088721E6342900D8885A /* CellConfig.swift */; };
 		56EF088A21E63A8300D8885A /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088921E63A8300D8885A /* News.swift */; };
 		56EF088C21E642AD00D8885A /* NetworkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF088B21E642AD00D8885A /* NetworkingAPI.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		560CBE2E21E6662D00D08620 /* NewsTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTextViewController.swift; sourceTree = "<group>"; };
 		56EF088721E6342900D8885A /* CellConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfig.swift; sourceTree = "<group>"; };
 		56EF088921E63A8300D8885A /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		56EF088B21E642AD00D8885A /* NetworkingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAPI.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				56EF088721E6342900D8885A /* CellConfig.swift */,
 				56F111FE21DF4E810009A9E9 /* Assets.xcassets */,
 				56EF088921E63A8300D8885A /* News.swift */,
+				560CBE2E21E6662D00D08620 /* NewsTextViewController.swift */,
 				56F1120021DF4E810009A9E9 /* LaunchScreen.storyboard */,
 				56EF088B21E642AD00D8885A /* NetworkingAPI.swift */,
 				56F1120321DF4E810009A9E9 /* Info.plist */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560CBE2F21E6662D00D08620 /* NewsTextViewController.swift in Sources */,
 				56EF088C21E642AD00D8885A /* NetworkingAPI.swift in Sources */,
 				56EF088821E6342900D8885A /* CellConfig.swift in Sources */,
 				56F111FA21DF4E7D0009A9E9 /* NewsListViewController.swift in Sources */,

@@ -14,6 +14,7 @@ class NewsListViewController: UIViewController, NewsBring {
     
     let segIndentif = "newsDiscript"
     let api = NetworkingAPI()
+    var delegate : TextNewsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,14 @@ class NewsListViewController: UIViewController, NewsBring {
         newsListTableView.estimatedRowHeight = UITableView.automaticDimension
        
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let news = ContiTest{
+        delegate?.textBring(news: news, numberOfRow: path.row)
+        
+        }
+        }
     
     func newsContainer(news: Response) {
         self.ContiTest = news
@@ -40,8 +49,8 @@ class NewsListViewController: UIViewController, NewsBring {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segIndentif {
-            if let title = ContiTest?.response.news[path.row].title {
-            segue.destination.title = title
+            if let title = ContiTest {
+            segue.destination.title = title.response.news[path.row].title
             }
         } else {
             super.prepare(for: segue, sender: sender)
